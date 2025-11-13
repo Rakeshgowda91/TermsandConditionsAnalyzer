@@ -1,83 +1,127 @@
-# 🔍 T&C Analyzer — Chrome Extension + AI Backend
 
-Automatically extract and summarize complex **Terms and Conditions** using AI.  
-Built with a FastAPI backend + Chrome extension frontend for ease of use.
 
----
+# **T&C Analyzer – Chrome Extension + FastAPI Backend**
 
-## 🚀 Features
-
-- 🧠 **AI-Powered Summarization** using Transformer models (`BART`, `DistilBART`, etc.)
-- ⚠️ **Risk Tagging** — Highlights clauses like data sharing, tracking, no refunds, etc.
-- 💡 **Click-to-Summarize** — Users highlight text manually before summarizing
-- ⚙️ **Chrome Extension** to run directly on any webpage
-- 🛡️ Built for future upgrades like reverse image search, credibility scoring, etc.
+T&C Analyzer is a smart Chrome extension designed to **summarize Terms & Conditions (T&C)** and highlight **potential risks** using AI.
+It helps users quickly understand long legal documents using a clean UI and an intelligent backend.
 
 ---
 
-## 🧩 Project Structure
+## 🚀 **Features**
 
-T-C-analyzer/
-├── backend/ # FastAPI backend with transformer model
-│ ├── model.py # Summarization logic, text cleaner, tagger
-│ ├── main.py # FastAPI server
-│ └── requirements.txt # Python dependencies
-├── extension/ # Chrome extension frontend
-│ ├── popup.html
-│ ├── popup.js
-│ ├── content.js
-│ ├── background.js
-│ └── manifest.json
-└── README.md # Project documentation
-## 🛠️ Installation
+* 🔍 **AI-powered summarization** of long Terms & Conditions
+* ⚠️ **Risk tagging** (risky clauses, data collection points, hidden rules, etc.)
+* 📌 **Clean Chrome extension UI** for easy copy-paste or auto-capture
+* ⚡ **FastAPI backend** for fast processing
+* 🤖 **Transformer-based ML model** for summarization & classification
+* 🔐 Secure communication between extension & backend
+* 📄 Supports long T&C text inputs
 
-### Backend (Python + FastAPI)
+---
 
-1. Clone the repo:
-   
-   git clone https://github.com/vamshir21/T-C-analyzer.git
-   cd T-C-analyzer/backend
+## 🏗️ **Project Architecture**
 
-Create virtual environment:
-python -m venv myenv
-myenv\Scripts\activate   # On Windows
+```
+Chrome Extension  →  FastAPI Backend  →  AI/ML Model
+```
 
-Install dependencies:
+**Frontend (Extension):**
+
+* Popup.html for UI
+* Popup.js for sending text to backend
+* Manifest v3
+
+**Backend:**
+
+* FastAPI REST APIs
+* Transformer model for summarization
+* Risk classification module
+* CORS enabled for Chrome Extension
+
+---
+
+## 📂 **Folder Structure**
+
+```
+/tandc-analyzer
+│── chrome-extension
+│   ├── manifest.json
+│   ├── popup.html
+│   ├── popup.js
+│   └── styles.css
+│
+│── backend
+│   ├── main.py
+│   ├── model.py
+│   ├── requirements.txt
+│   └── utils/
+│
+└── README.md
+```
+
+---
+
+## ⚙️ **Tech Stack**
+
+### **Frontend**
+
+* HTML, CSS, JavaScript
+* Chrome Extension (Manifest V3)
+
+### **Backend**
+
+* Python
+* FastAPI
+* HuggingFace Transformers
+* Pydantic
+* Uvicorn
+
+---
+
+## 🚀 **How to Run**
+
+### **Backend**
+
+```bash
+cd backend
 pip install -r requirements.txt
-
-Run FastAPI server:
 uvicorn main:app --reload
+```
 
-Chrome Extension
-Go to chrome://extensions/
-Enable Developer Mode
-Click Load Unpacked
-Select the /extension folder
+### **Chrome Extension**
 
-🧪 Usage
-Open any Terms & Conditions page
+1. Go to `chrome://extensions/`
+2. Enable **Developer Mode**
+3. Click **Load Unpacked**
+4. Select your **chrome-extension** folder
 
-Highlight the relevant section of text
+---
 
-Click the Summarize button in the extension
+## 🧪 **API Endpoints**
 
-View AI summary and risk tags instantly
+### **POST /summarize**
 
-📌 To-Do (Planned Features)
- Add UI-based risk highlights
+Input T&C text → returns short summary
 
- Support deepfake image detection
+### **POST /risk-analysis**
 
- Add source credibility scoring
+Returns risk tags and explanations
 
- Allow saving summaries to cloud
+---
 
- Option to fine-tune model on legal data
+## 📌 **Future Enhancements**
 
-🤖 Model Info
-Using facebook/bart-large-cnn for high-quality summarization.
-Supports long-form text split into chunks before processing.
+* Automatic webpage scraping
+* Downloadable PDF summary
+* Chrome right-click menu for instant analysis
+* User dashboard & analytics
 
-📄 License
-MIT License © 2025 Vamshi R. Yadav
+---
+
+## 🧑‍💻 **Author**
+
+**Rakesh Gowda**
+Final-year Information Science Engineering
+Passionate about **AI, Cloud, DevOps, and full-stack development**.
+
 
